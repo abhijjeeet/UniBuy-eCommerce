@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  unibuy-backend:
+    image: unibuy-backend
+    container_name: unibuy-backend
+    build: .
+    ports:
+      - "7000:80"
+    volumes:
+      - /docker/unibuy-backend/volume:/app/volume
+    networks:
+      - nginx-certbot
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+
+networks:
+  nginx-certbot:
+    external: true

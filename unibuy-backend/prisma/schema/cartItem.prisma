@@ -1,0 +1,14 @@
+model CartItem {
+  id               String   @id @default(cuid())
+  user             User     @relation(fields: [userId], references: [id])
+  userId           String
+  product          Product  @relation(fields: [productId], references: [id])
+  productId        String
+  variant          ProductVariant? @relation(fields: [variantId], references: [id])
+  variantId        String?
+  sku              String?
+  variantSelection Json?
+  quantity         Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}

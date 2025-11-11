@@ -1,0 +1,21 @@
+model User {
+  id         String     @id @default(cuid())
+  name       String
+  email      String     @unique
+  phone      String?
+  otpCode    String? 
+  otpExpiry  DateTime? 
+  password   String
+  isVerified Boolean    @default(false)
+  role       Role       @default(USER)
+  orders     Order[]
+  cartItems  CartItem[]
+  wishlists  Wishlist[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+enum Role {
+  USER
+  ADMIN
+}

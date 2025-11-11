@@ -1,0 +1,8 @@
+-- AlterTable
+ALTER TABLE "Order" ADD COLUMN "address" TEXT;
+ALTER TABLE "Order" ADD COLUMN "city" TEXT;
+ALTER TABLE "Order" ADD COLUMN "fullName" TEXT;
+ALTER TABLE "Order" ADD COLUMN "landmark" TEXT;
+ALTER TABLE "Order" ADD COLUMN "phone" TEXT;
+ALTER TABLE "Order" ADD COLUMN "postalCode" TEXT;
+ALTER TABLE "Order" ADD COLUMN "state" TEXT;

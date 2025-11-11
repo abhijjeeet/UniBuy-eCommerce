@@ -1,0 +1,31 @@
+model Order {
+  id          String      @id @default(cuid())
+  user        User        @relation(fields: [userId], references: [id])
+  userId      String
+  status      OrderStatus @default(PENDING)
+  totalPrice  Float       @default(0)
+  discount    Float?      @default(0)
+  finalAmount Float       @default(0)
+  couponCode  String?
+  coupon      Coupon?     @relation(fields: [couponCode], references: [code])
+
+  items     OrderItem[]
+  createdAt DateTime    @default(now())
+
+  // 🆕 Customer / Shipping details
+  fullName   String?
+  phone      String?
+  address    String?
+  city       String?
+  state      String?
+  postalCode String?
+  landmark   String?
+}
+
+enum OrderStatus {
+  PENDING
+  SHIPPED
+  PROCESSING
+  DELIVERED
+  CANCELLED
+}

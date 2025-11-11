@@ -1,0 +1,26 @@
+pipeline {
+    agent { label 'itbco-vps-2yr'} 
+    stages {
+        stage('Docker') {
+            steps {
+                script {
+                    sh """
+                        docker-compose build --no-cache
+                        docker-compose down
+                        docker-compose up -d
+                    """
+                }
+            }
+        }
+        stage('Nginx') {
+            steps {
+                script {
+                    sh """
+                        docker exec nginx nginx -t
+                        docker exec nginx nginx -s reload
+                    """
+                }
+            }
+        }
+    }
+}

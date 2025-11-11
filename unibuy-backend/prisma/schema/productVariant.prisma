@@ -1,0 +1,16 @@
+model ProductVariant {
+  id        String  @id @default(cuid())
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  optionType  String?
+  optionValue String?
+  price       Float?
+  stock       Int?
+  sku         String?    @unique
+  imageUrl    String?
+  cartItems   CartItem[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+    orderItems OrderItem[]
+}

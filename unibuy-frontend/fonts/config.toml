@@ -1,0 +1,5 @@
+family = "UttarakhandEmoji"
+output_file = "uttarakhand-emoji.ttf"
+color_format = "glyf_colr_1"
+emoji_presentation = true
+subset_from_filename = true

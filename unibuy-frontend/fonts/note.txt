@@ -1,0 +1,1 @@
+nanoemoji --config_file config.toml svgs/*.svg

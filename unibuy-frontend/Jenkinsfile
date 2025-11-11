@@ -1,0 +1,20 @@
+pipeline {
+    agent { label 'itbco-vps-2yr' }
+    environment {
+        CONTAINER_NAME = 'unibuy-frontend'
+    }
+    stages {
+        stage('Docker') {
+            steps {
+                script {
+                    sh """
+                        docker-compose build --no-cache
+                        docker-compose down
+                        docker-compose up -d
+                    """
+                }
+            }
+        }
+        
+    }
+}

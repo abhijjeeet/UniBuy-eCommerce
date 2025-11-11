@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  unibuy-frontend:
+    image: unibuy-frontend
+    container_name: unibuy-frontend
+    build: 
+      context: .
+    ports:
+      - "7001:80"     
+    networks:
+      - nginx-certbot
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 500m
+
+networks:
+  nginx-certbot:
+    external: true

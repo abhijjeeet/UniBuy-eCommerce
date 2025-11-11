@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist", // Output directory for compiled files
+    "module": "CommonJS", // Module system to use (CommonJS for Node.js)
+    // "target": "ES2020", // JavaScript version to target
+    "target": "ES2021", // Target ES2021 or later
+    "lib": [
+      "ES2021",
+      "DOM"
+    ], // In
+    "declaration": true, // Generate .d.ts files for TypeScript types
+    "strict": true, // Enable strict type-checking
+    "esModuleInterop": true, // Allow imports of CommonJS modules
+    "skipLibCheck": true, // Skip type checks for declaration files
+    "sourceMap": true, // Enable source maps for debugging
+    "experimentalDecorators": true, // Enable experimental decorators
+    "emitDecoratorMetadata": true, // Emit metadata for runtime reflection
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*",
+        "src/types/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "config",
+    "prisma/prisma.ts",
+    "tsoa/authentication.ts"
+  ], // Files to include in the compilation
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] // Exclude these directories
+}

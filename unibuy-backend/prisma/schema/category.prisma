@@ -1,0 +1,5 @@
+model Category {
+  id       String     @id @default(cuid())
+  name     String     @unique
+  products Product[]  @relation("ProductCategories")
+}

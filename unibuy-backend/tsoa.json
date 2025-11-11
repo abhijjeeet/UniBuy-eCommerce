@@ -1,0 +1,37 @@
+{
+    "entryFile": "src/index.ts",
+    "noImplicitAdditionalProperties": "throw-on-extras",
+    "controllerPathGlobs": [
+        "src/controllers/**/*.ts"
+    ],
+    "spec": {
+        "outputDirectory": "tsoa",
+        "specVersion": 3,
+        "basePath": "/",
+        "securityDefinitions": {
+            "BEARER_TOKEN": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            },
+            "ADMIN_BEARER_TOKEN": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "routes": {
+        "authenticationModule": "tsoa/authentication.ts",
+        "routesDir": "tsoa"
+    },
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*",
+                "src/types/*"
+            ]
+        }
+    }
+}
